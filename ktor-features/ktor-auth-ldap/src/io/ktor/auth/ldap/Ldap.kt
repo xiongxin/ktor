@@ -42,8 +42,8 @@ fun ldapAuthenticate(credential: UserPasswordCredential, ldapServerURL: String, 
 
 private fun ldapLogin(ldapURL: String, ldapEnvironmentBuilder: (MutableMap<String, Any?>) -> Unit): InitialDirContext {
     val env = Hashtable<String, Any?>()
-    env.put(Context.INITIAL_CONTEXT_FACTORY, LdapCtxFactory::class.qualifiedName!!);
-    env.put(Context.PROVIDER_URL, ldapURL);
+    env.put(Context.INITIAL_CONTEXT_FACTORY, LdapCtxFactory::class.qualifiedName!!)
+    env.put(Context.PROVIDER_URL, ldapURL)
 
     ldapEnvironmentBuilder(env)
 

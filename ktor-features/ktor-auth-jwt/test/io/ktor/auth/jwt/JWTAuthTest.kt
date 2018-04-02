@@ -237,7 +237,7 @@ class JWTAuthTest {
 
     private fun Application.configureServerJwk(mock: Boolean = false) = configureServer {
         jwt {
-            this@jwt.realm = realm
+            this@jwt.realm = this@JWTAuthTest.realm
             verifier(if (mock) getJwkProviderMock() else makeJwkProvider(), issuer)
             validate { credential ->
                 when {
@@ -251,7 +251,7 @@ class JWTAuthTest {
 
     private fun Application.configureServerJwt() = configureServer {
         jwt {
-            this@jwt.realm = realm
+            this@jwt.realm = this@JWTAuthTest.realm
             verifier(makeJwtVerifier())
             validate { credential ->
                 when {
